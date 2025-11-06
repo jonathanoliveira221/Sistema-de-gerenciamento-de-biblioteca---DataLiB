@@ -99,15 +99,15 @@ clientes = [
 
 
 # Verifica e insere livros apenas se necessario, fazendo assim a ordem exata dos id livros 
-tabela.execute("SELECT COUNT(*) FROM livros")
-if tabela.fetchone()[0] == 0:
+tabela.execute("SELECT COUNT(*) FROM livros") #conta quantas linhas existem na tabela chamada livros 
+if tabela.fetchone()[0] == 0: # faz a verificaçao se ha dados na primeira linha na tabela 
     tabela.executemany("""INSERT INTO livros (titulo, autor, ano)
         VALUES (?, ?, ?)
     """, livros)
 
 
 # Verifica e insere clientes apenas se necessario, fazendo assim a ordem do id clientes
-tabela.execute("SELECT COUNT(*) FROM clientes")
+tabela.execute("SELECT COUNT(*) FROM clientes") 
 if tabela.fetchone()[0] == 0:
     tabela.executemany("""INSERT INTO clientes (nome, email, telefone)
         VALUES (?, ?, ?)
@@ -115,7 +115,7 @@ if tabela.fetchone()[0] == 0:
 
 connection.commit()
     
-class BibliotecaGUI:
+class BibliotecaGUI:  # criaçao da classe principal da interface
     def __init__(self, root):
         self.root = root
         self.root.title("DataLiB")

@@ -158,7 +158,7 @@ class BibliotecaGUI:  # criaçao da classe principal da interface
         tk.Button(frame_botoes, text="Devolver Livro", 
                  command=self.abrir_devolver_livro, width=20, height=2, bg='#90EE90').grid(row=2, column=1, padx=5, pady=5)
         
-        # criaçao de area de exibiçao
+        # criaçao de area de exibiçao com o scroll
         
         frame_exibicao = tk.Frame(self.root)  
         frame_exibicao.pack(pady=10, padx=10, fill='both', expand=True)
@@ -173,7 +173,7 @@ class BibliotecaGUI:  # criaçao da classe principal da interface
         
         self.mostrar_mensagem("Bem-vindo ao DataLib!\nClique nos botões acima para começar.")
     
-    # area onde se exibe o texto, acionada pelas funçoes de ver_livros, ver_clientes e ver_emprestimos
+    # funçao para exibir as tabelas junto com as funçoes de ver_livros, ver_clientes e ver_emprestimos
 
     def mostrar_mensagem(self, mensagem):
         self.texto_exibicao.delete(1.0, tk.END)
